@@ -293,6 +293,7 @@ body > svg {
           add_property 'svg' if ((item.attr 'epub-properties') || []).include? 'svg'
           # QUESTION should we pass the document itself?
           item.references[:images].each do |target|
+            imagesdir = target[:imagesdir] unless target[:imagesdir].nil_or_empty?
             images[image_path = %(#{imagesdir}#{target})] ||= { docfile: docfile, path: image_path }
           end
           # QUESTION reenable?
